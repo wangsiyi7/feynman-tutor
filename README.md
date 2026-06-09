@@ -7,12 +7,17 @@
 *A Claude Code skill that turns "truly understanding something" into a repeatable teaching method.*
 
 [![Skill](https://img.shields.io/badge/Claude-Skill-8A63D2?logo=anthropic&logoColor=white)](https://docs.claude.com/en/docs/claude-code/skills)
+[![Live Demo](https://img.shields.io/badge/🌐_在线演示-Live-8A63D2.svg)](https://wangsiyi7.github.io/feynman-tutor/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
 [![Language](https://img.shields.io/badge/lang-中文-red.svg)](#)
 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](CONTRIBUTING.md)
 [![Status](https://img.shields.io/badge/status-active-success.svg)](#-路线图--roadmap)
 
-[功能](#-它能做什么) · [安装](#-安装) · [用法](#-用法) · [理念](#-设计理念) · [示例](#-示例片段) · [路线图](#-路线图--roadmap)
+[**🌐 在线演示**](https://wangsiyi7.github.io/feynman-tutor/) · [功能](#-它能做什么) · [安装](#-安装) · [用法](#-用法) · [理念](#-设计理念) · [示例](#-示例片段) · [路线图](#-路线图--roadmap)
+
+<br/>
+
+**▶ 在线体验「费曼演示台」 → https://wangsiyi7.github.io/feynman-tutor/**
 
 </div>
 
@@ -139,15 +144,24 @@ git clone https://github.com/wangsiyi7/feynman-tutor.git "$env:USERPROFILE\.clau
 
 ## 🗂️ 项目结构
 
+本仓库遵循 **skill-creator 渐进式披露范式**：`SKILL.md` 保持精简常驻，更深的弹药库放进 `references/`，按需查阅。
+
 ```
 feynman-tutor/
-├── README.md                  # 你正在看的这页
-├── SKILL.md                   # 技能本体（7 条教学纪律 + 为什么）
-├── LICENSE                    # MIT
-├── CONTRIBUTING.md            # 如何参与改进
-├── docs/
-│   └── example-session.md     # 一段完整的教学示例
-└── assets/                    # 展示素材
+├── SKILL.md                       # 技能入口：7 条纪律 + 为什么 + 资源导航
+├── references/                    # 渐进式披露的深度资源（按需加载）
+│   ├── analogy-bank.md            #   类比库（网络/编程/ML/物理/金融）
+│   ├── pixel-diagram-cookbook.md  #   ASCII 像素图模板库
+│   └── teaching-playbook.md       #   临场读信号、判断真懂、开菜单
+├── assets/
+│   └── term-ledger-template.md    # 术语账本表格模板
+├── evals/
+│   └── evals.json                 # 触发评测集（该触发 / 不该触发）
+├── docs/                          # GitHub Pages 网站 + 教学示例
+│   ├── index.html · style.css · script.js   # 交互式展示站（费曼演示台）
+│   └── example-session.md         # 一段完整的教学示例
+├── .github/workflows/pages.yml    # 自动部署 Pages
+├── README.md · CONTRIBUTING.md · LICENSE
 ```
 
 ---
@@ -155,8 +169,9 @@ feynman-tutor/
 ## 🛣️ 路线图 / Roadmap
 
 - [x] v1.0 — 七条教学纪律成型，可自动 / 手动触发
-- [ ] v1.1 — **触发描述优化**：用真实提问集校准，提升「该触发 / 不该触发」的准确度
-- [ ] v1.2 — 英文版 README（`README.en.md`）
+- [x] v1.1 — 升级为完整 **skill-creator 范式**（`references/` + `evals/` + `assets/`）+ 交互式 GitHub Pages 网站
+- [ ] v1.2 — **触发描述优化**：用 `evals/evals.json` 校准「该触发 / 不该触发」的准确度
+- [ ] v1.3 — 英文版 README（`README.en.md`）
 - [ ] 探索 — 跨会话持久化「术语账本」，让长期学习连贯
 
 ---
